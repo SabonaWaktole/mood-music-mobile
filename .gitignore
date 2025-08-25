@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+# Avoid commiting liscense files for 3rd party libraries
+LICENSE.*
+license.*
+LICENSE-**
+license-**
+LICENSE-*_**
+license-*_**
+LICENSE.txt
+LICENSE
+LICENSE
