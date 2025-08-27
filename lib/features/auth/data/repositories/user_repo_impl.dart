@@ -28,7 +28,6 @@ class UserRepoImpl implements UserRepo{
   @override
   Future<UserModel> login(String username, String password) async{
     final user = await remoteDataSource.login(username, password);
-    await localDataSource.cacheUser(user);
     return user;
     
   }
@@ -43,7 +42,6 @@ class UserRepoImpl implements UserRepo{
   @override
   Future<UserModel> register(String username, String email, String password) async{
     final user = await remoteDataSource.register(username, email, password);
-    await localDataSource.cacheUser(user);
     return user;
     
   }
