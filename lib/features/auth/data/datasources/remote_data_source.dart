@@ -13,19 +13,19 @@ abstract class RemoteDataSource {
 
 class RemoteDataSourceImpl implements RemoteDataSource {
   final http.Client client;
-  LocalDataSource localDataSource;      
+  LocalDataSource localDataSource;
   RemoteDataSourceImpl({required this.client, required this.localDataSource});
   static const String baseUrl = Injection.baseUrl;
   @override
   Future<UserModel> login(String username, String password) async {
-    // Check if the user is aready logged in
+    // Check if the user is already logged in
     //if yes, return the cached user
     //if no, make a network request to login
 
     UserModel? cachedUser = await localDataSource.getCachedUser();
     if (cachedUser != null) {
       return cachedUser;
-    }
+    }   
     final response = await client.post(
       Uri.parse('$baseUrl/public/login'),
       headers: {'Content-Type': 'application/json'},
