@@ -15,28 +15,33 @@ class VoiceJournalWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(24), // increased padding for more height
       decoration: BoxDecoration(
         color: isDark ? primaryDarkBackgroundColor : primaryBackgroundColor,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: isDark ? Colors.white24 : Colors.black12),
+        // removed border
       ),
       child: Column(
         children: [
           const Text(
             'Voice Journal',
             style: TextStyle(
+              fontFamily: 'Roboto',
               fontWeight: FontWeight.bold,
               fontSize: 18,
               color: primaryTextColor,
             ),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           Text(
             'Tap the mic to record your thoughts',
-            style: TextStyle(color: greyText, fontSize: 12),
+            style: TextStyle(
+              fontFamily: 'Roboto',
+              color: greyText,
+              fontSize: 12,
+            ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 20), // increased spacing
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

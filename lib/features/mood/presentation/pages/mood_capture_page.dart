@@ -6,6 +6,8 @@ import '../widgets/voice_jornal_widget.dart';
 import '../widgets/wearable_signals_widget.dart';
 import '../widgets/music_breathing_widget.dart';
 import '../widgets/mood_grid_widget.dart';
+import '../../../../cores/constants/colors.dart';
+
 class MoodCapturePage extends StatefulWidget {
   const MoodCapturePage({super.key});
 
@@ -22,7 +24,6 @@ class _MoodCapturePageState extends State<MoodCapturePage> {
     final primary = Theme.of(context).primaryColor;
     final secondary = Theme.of(context).secondaryHeaderColor;
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    debugPrint("isDark: $isDark $primary");
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -30,15 +31,22 @@ class _MoodCapturePageState extends State<MoodCapturePage> {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            const Text(
+            Text(
               "How are you feeling right now?",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontFamily: 'Roboto', // changed font
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 4),
             Text(
               "Select a mood, or describe it below.",
-              style: TextStyle(color: Colors.grey[600]),
+              style: TextStyle(
+                fontFamily: 'Roboto', // changed font
+                color: Colors.grey[600],
+              ),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -54,7 +62,14 @@ class _MoodCapturePageState extends State<MoodCapturePage> {
                 side: BorderSide(color: primary.withOpacity(0.5), width: 2),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
               ),
-              child: Text('+ Custom Mood', style: TextStyle(color: primary, fontWeight: FontWeight.bold)),
+              child: Text(
+                '+ Custom Mood',
+                style: TextStyle(
+                  fontFamily: 'Roboto', // changed font
+                  color: primary,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             const SizedBox(height: 16),
 
@@ -64,7 +79,7 @@ class _MoodCapturePageState extends State<MoodCapturePage> {
             const SizedBox(height: 16),
             WearableSignalsWidget(primary: primary, isDark: isDark),
             const SizedBox(height: 16),
-            MusicBreathingWidget(primary: primary, secondary: secondary,),
+            MusicBreathingWidget(primary: primary, secondary: secondary),
             const SizedBox(height: 16),
             ButtonWidget(label: "Save Mood", onPressed: () {}),
             const SizedBox(height: 16),
